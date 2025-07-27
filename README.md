@@ -27,7 +27,7 @@ Make sure the following are installed:
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/yourusername/movie_interest_app.git
+git clone https://github.com/praveenasiva/movie_interest_app.git
 cd movie_interest_app
 ```
 
