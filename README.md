@@ -95,13 +95,13 @@ movie_interest_app/
 - Improve the UI using frontend frameworks
 
 
-
+---
 ## Step-by-Step Guide: How to Use the Movie Interest Predictor
 ## Step 1: Input Form
 <img width="1914" height="1005" alt="Step-1" src="https://github.com/user-attachments/assets/f271a4ae-dd3b-4c15-8574-bac69b962d68" />
 - Enter your Age and select your Gender from the dropdown.
 - Click the "Predict" button to generate results. 
-
+---
 ## Step 2: Filled Form Example
 <img width="1887" height="1009" alt="Step-2" src="https://github.com/user-attachments/assets/e1362bb2-aa82-47ef-99d3-914ded2e2d3f" />
 - Example input:
