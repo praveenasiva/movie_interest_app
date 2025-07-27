@@ -1,41 +1,30 @@
 from flask import Flask, render_template, request
 import joblib
-import pandas as pd
-import sys
-import json
 
 app = Flask(__name__)
 
-# Load the model and mapping when the app starts
-try:
-    model = joblib.load('model.pkl')
-    with open('interest_map.json', 'r') as f:
-        interest_map = json.load(f)
-    # Reverse the mapping for prediction
-    interest_map_rev = {v: k for k, v in interest_map.items()}
-except Exception as e:
-    print(f"Error loading model or mapping: {e}", file=sys.stderr)
-    model = None
-    interest_map_rev = None
+# Load the trained model and the interest mapping
+model = joblib.load('model.pkl')
+interest_map = joblib.load('interest_map.pkl')
+
+# Make a new dictionary to change numbers back to interest names
+interest_map_rev = {}
+for interest, number in interest_map.items():
+    interest_map_rev[number] = interest
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     prediction = None
     if request.method == 'POST':
-        try:
-            # Get form data
-            age = int(request.form['age'])
-            gender = int(request.form['gender'])
-            if model and interest_map_rev:
-                # Make prediction
-                pred_num = model.predict([[age, gender]])[0]
-                prediction = interest_map_rev.get(pred_num, "Unknown")
-            else:
-                prediction = "Model not loaded"
-        except Exception as e:
-            prediction = f"Invalid input: {e}"
+        # Get age and gender from the form
+        age = int(request.form['age'])
+        gender = int(request.form['gender'])
+        # Use the model to predict the interest number
+        pred_num = model.predict([[age, gender]])[0]
+        # Get the interest name from the number
+        prediction = interest_map_rev.get(pred_num, "Unknown")
+    # Show the result on the web page
     return render_template('index.html', prediction=prediction)
 
 if __name__ == '__main__':
-    print("Starting Flask app... Access it at http://127.0.0.1:5000/")
     app.run(debug=True)
