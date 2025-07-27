@@ -94,9 +94,7 @@ movie_interest_app/
 - Experiment with different machine learning models  
 - Improve the UI using frontend frameworks
 
+<img width="1914" height="1005" alt="Step-1" src="https://github.com/user-attachments/assets/f271a4ae-dd3b-4c15-8574-bac69b962d68" />
+<img width="1887" height="1009" alt="Step-2" src="https://github.com/user-attachments/assets/e1362bb2-aa82-47ef-99d3-914ded2e2d3f" />
+<img width="1919" height="992" alt="Step-3" src="https://github.com/user-attachments/assets/436e2798-5de6-40bd-815f-b18df68d5226" />
 
-
-
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
